@@ -26,7 +26,7 @@ const GoogleAuth = () => {
             </div>
         </div>
 
-      );
+    );
 };
 
 export default GoogleAuth;

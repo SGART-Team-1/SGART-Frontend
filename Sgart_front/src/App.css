@@ -139,7 +139,29 @@ h2 {
 .login-options a:hover {
   color: #357ABD;
 }
+.qr-container {
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+
+
+.qr-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #888;
+}
 /* Adaptable para móviles */
 @media (max-width: 768px) {
   .login-box {

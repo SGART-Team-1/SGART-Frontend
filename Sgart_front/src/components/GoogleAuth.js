@@ -25,7 +25,6 @@ const GoogleAuth = () => {
             </div>
             </div>
         </div>
-
     );
 };
 

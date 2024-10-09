@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { QRCode } from 'qrcode.react';
+
 import '../App.css';
 
 const GoogleAuth = () => {
@@ -17,7 +17,7 @@ const GoogleAuth = () => {
     };
 
     return (
-        <div className="login-conainer">
+        <div className="login-container">
             <div className="login-box">
                 <h2>Bienvenido</h2>
                 <p>Por favor escanea el código QR con tu dispositivo móvil para configurar Google Authenticator:</p>

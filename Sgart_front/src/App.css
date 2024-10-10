@@ -139,6 +139,7 @@ h2 {
 .login-options a:hover {
   color: #357ABD;
 }
+
 .qr-container {
   margin-top: 20px;
   width: 200px;
@@ -151,8 +152,6 @@ h2 {
   margin-right: auto;
 }
 
-
-
 .qr-placeholder {
   width: 100%;
   height: 100%;
@@ -162,6 +161,7 @@ h2 {
   text-align: center;
   color: #888;
 }
+
 /* Adaptable para móviles */
 @media (max-width: 768px) {
   .login-box {

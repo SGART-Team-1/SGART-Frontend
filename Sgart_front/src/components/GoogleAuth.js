@@ -12,7 +12,7 @@ const GoogleAuth = () => {
     useEffect(() => {
         const fetchQRCode = async () => {
             try {
-                // Asegúrate de reemplazar 'user@example.com' con el email del usuario actual
+                
                 const response = await axios.get('/Auth/generate-qr', {
                     params: { email: 'user@example.com' }
                 });

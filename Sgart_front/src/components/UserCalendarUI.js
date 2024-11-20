@@ -360,7 +360,10 @@ const UserCalendarUI = () => {
         };
 
         try {
+<<<<<<< Updated upstream
+=======
             setIsLoading(true);
+>>>>>>> Stashed changes
             const response = await fetch('http://localhost:9000/administrador/eventos/saveEvent', {
                 method: 'POST',
                 headers: {
@@ -481,6 +484,7 @@ const UserCalendarUI = () => {
 
     // PRUEBAS
     const [reunionesPendientes, setReunionesPendientes] = useState([
+<<<<<<< Updated upstream
         { id: 1, nombre: 'Reunión con equipo', fecha: '2024-11-10' },
         { id: 2, nombre: 'Revisión de proyecto', fecha: '2024-11-12' },
         { id: 35, nombre: 'Revisión de proyecto', fecha: '2024-11-15' },

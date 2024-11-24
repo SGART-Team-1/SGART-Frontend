@@ -1,26 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../App.css';
 import NavBar from './NavBar';
 
-const UserEdit = ({ user, onSave, onCancel }) => {
-    const [name, setName] = useState(user.name);
-    const [lastName, setLastName] = useState(user.lastName);
-    const [profile, setProfile] = useState(user.profile);
-    const [department, setDepartment] = useState(user.department);
-    const [hiringDate, setHiringDate] = useState(user.hiringDate);
-    const [center, setCenter] = useState(user.center);
+const UserEdit = () => {
+    const [id, setId] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [profile, setProfile] = useState('');
+    const [department, setDepartment] = useState('');
+    const [hiringDate, setHiringDate] = useState('');
+    const [center, setCenter] = useState('');
+
+    useEffect(() => {
+        loadUser();
+    },[]);
+
+    const loadUser = async () => {
+        try {
+            const response = await fetch('/users/current/user', {
+                credentials: 'include'
+            });
+            if (!response.ok) {
+                throw new Error('No se pudo obtener el usuario');
+            }
+            const data = await response.json();
+            console.log("Usuario obtenido:", {id:data.email});
+            setId(data.id)
+            setName(data.name);
+            setEmail(data.email);
+            setLastName(data.lastName);
+            setDepartment(data.department);
+            setProfile(data.profile);
+            setHiringDate(data.hiringDate);
+            setCenter(data.center);
+        } catch (error) {
+            console.error('Error al obtener el usuario:', error);
+            return null;
+        }
+    };
 
     const handleSave = () => {
         const updatedUser = {
-            ...user,
-            name,
-            lastName,
-            profile,
-            department,
-            hiringDate,
-            center,
+            id:id,
+            name:name,
+            lastName:lastName,
+            profile:profile,
+            department:department,
+            hiringDate:hiringDate,
+            center:center,
+            email:email
         };
+
+        console.log(updatedUser);
 
         // Realizar la solicitud al backend
         fetch('/users/modificar', {
@@ -32,25 +65,16 @@ const UserEdit = ({ user, onSave, onCancel }) => {
         })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Error al modificar los datos del usuario');
+                    alert('Error al modificar los datos del usuario');
+                    return;
                 }
-                return response.json();
+                alert("Usuario editado exitosamente")
             })
-            .then(data => {
-                console.log('Usuario actualizado exitosamente:', data);
-                alert('Usuario modificado exitosamente');
-                onSave(data); // Notificar al componente padre los datos actualizados
-            })
-            .catch(error => {
-                console.error('Error al guardar usuario:', error);
-                alert('Hubo un problema al modificar los datos del usuario.');
-            });
     };
 
     const handleCancel = () => {
         console.log('Edición cancelada');
         alert('Edición cancelada');
-        onCancel();
     };
 
     return (
@@ -133,19 +157,6 @@ const UserEdit = ({ user, onSave, onCancel }) => {
             </div>
         </>
     );
-};
-
-UserEdit.propTypes = {
-    user: PropTypes.shape({
-        name: PropTypes.string,
-        lastName: PropTypes.string,
-        profile: PropTypes.string,
-        department: PropTypes.string,
-        hiringDate: PropTypes.string,
-        center: PropTypes.string,
-    }),
-    onSave: PropTypes.func.isRequired,
-    onCancel: PropTypes.func.isRequired,
 };
 
 export default UserEdit;

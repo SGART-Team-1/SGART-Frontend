@@ -1,0 +1,48 @@
+trigger:
+  - develop
+
+stages:
+  - stage: Despliegue
+    jobs:
+      - job: BuildAndDeploy
+        displayName: 'Build and Deploy Job'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '20.x'
+            displayName: 'Install Node.js'
+
+          - script: |
+              npm install
+              npm install -g firebase-tools
+            displayName: 'npm install y instalación firebase'
+
+          - script: |
+              cd Sgart_front
+              npm run build
+            displayName: 'Build'
+
+          - script: |
+              firebase deploy --token $(FIREBASE_TOKEN)
+            displayName: 'Despliegue'
+
+  - stage: SonarQube
+    jobs:
+      - job: SonarQubeJob
+        displayName: 'SonarQube Analysis Job'
+        pool:
+          name: Default
+          demands:
+            - agent.name -equals SonarLocalPC
+        steps:
+          - checkout: none
+          - script: |
+              sonar-scanner \
+              -Dsonar.token=$(SQ_TOKEN) \
+              -Dproject.settings=sgart.backend/sonar-project.properties \
+              -Dsonar.coverage.jacoco.xmlReportPaths=sgart.backend/target/site/jacoco/jacoco.xml
+            displayName: 'SonarQube analysis'
+          - script: echo "SonarQube OK"
+            displayName: 'Confirm SonarQube'

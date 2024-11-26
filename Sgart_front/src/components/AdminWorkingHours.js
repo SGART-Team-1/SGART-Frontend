@@ -53,7 +53,7 @@ const AdminWorkingHours = () => {
     // Cargar los eventos regulares de la base de datos
     const loadEvents = useCallback(async () => {
         try {
-            const response = await fetch('https://sgart-backend.onrender.com/administrador/eventos/loadEvents');
+            const response = await fetch('/administrador/eventos/loadEvents');
             if (!response.ok) throw new Error('Error al cargar los eventos');
 
             const backendEvents = await response.json();
@@ -73,7 +73,7 @@ const AdminWorkingHours = () => {
     // Cargar los horarios de trabajo modificados de la base de datos
     const loadModifiedWorkingHours = useCallback(async () => {
         try {
-            const response = await fetch('https://sgart-backend.onrender.com/administrador/eventos/loadSchedules');
+            const response = await fetch('/administrador/eventos/loadSchedules');
             if (!response.ok) throw new Error('Error al cargar los horarios modificados');
 
             const backendWorkingHours = await response.json();
@@ -92,7 +92,7 @@ const AdminWorkingHours = () => {
     // Cargar los horarios de trabajo por defecto de la base de datos
     const loadDefaultWorkingHours = useCallback(async () => {
         try {
-            const response = await fetch('https://sgart-backend.onrender.com/administrador/eventos/loadDefaultSchedule');
+            const response = await fetch('/administrador/eventos/loadDefaultSchedule');
             if (!response.ok) throw new Error('Error al cargar los horarios de trabajo por defecto');
 
             const backendDefaultHours = await response.json();
@@ -224,7 +224,7 @@ const AdminWorkingHours = () => {
         };
 
         try {
-            const response = await fetch('https://sgart-backend.onrender.com/administrador/eventos/saveEvent', {
+            const response = await fetch('/administrador/eventos/saveEvent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -261,7 +261,7 @@ const AdminWorkingHours = () => {
         };
 
         try {
-            const response = await fetch('https://sgart-backend.onrender.com/administrador/eventos/saveDay', {
+            const response = await fetch('/administrador/eventos/saveDay', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

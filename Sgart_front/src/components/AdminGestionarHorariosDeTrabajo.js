@@ -23,7 +23,7 @@ const AdminGestionarHorariosDeTrabajo = () => {
         const fetchWorkingHours = async () => {
             try {
                 setIsLoading(true);
-                const response = await axios.get("https://sgart-backend.onrender.com/administrador/horarios");
+                const response = await axios.get("/administrador/horarios");
                 if (response.data.length > 0) {
                     // Si hay datos, desactiva la edición y almacena los horarios recibidos
                     setIsEditable(false);
@@ -71,7 +71,7 @@ const AdminGestionarHorariosDeTrabajo = () => {
         
         try {
             setIsLoading(true);
-            await axios.post("https://sgart-backend.onrender.com/administrador/horarios", workingHoursList);
+            await axios.post("/administrador/horarios", workingHoursList);
             alert("Horarios de trabajo guardados correctamente.");
             setIsEditable(false); // Desactiva la edición después de guardar
             setIsPopupOpen(false);

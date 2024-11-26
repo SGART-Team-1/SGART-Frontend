@@ -63,7 +63,7 @@ const AdminCreateForm = ({ admin, onSave, onCancel }) => {
             center: center
         };
 
-        fetch('https://sgart-backend.onrender.com/admin/modificarAdmin', {
+        fetch('/admin/modificarAdmin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

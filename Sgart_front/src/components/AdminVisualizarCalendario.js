@@ -20,7 +20,7 @@ const AdminCalendar = () => {
             setIsLoading(true);
             console.log("Intentando cargar meetings desde el backend...");
 
-            const response = await fetch('https://sgart-backend.onrender.com/administrador/calendarios/loadMeetings');
+            const response = await fetch('/administrador/calendarios/loadMeetings');
             if (!response.ok) {
                 throw new Error(`Error al cargar los meetings: ${response.statusText}`);
             }
@@ -55,7 +55,7 @@ const AdminCalendar = () => {
             setIsLoading(true);
             console.log(`Intentando cargar invitados para la reunión con ID: ${meetingId}`);
 
-            const response = await fetch(`https://sgart-backend.onrender.com/administrador/calendarios/invitados`, {
+            const response = await fetch(`/administrador/calendarios/invitados`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

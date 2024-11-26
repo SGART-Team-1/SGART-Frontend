@@ -23,7 +23,7 @@ const GoogleAuthLogin = () => {
             code: inputCode,
         }
 
-        fetch('https://sgart-backend.onrender.com/auth/validate-totp-db', {
+        fetch('/auth/validate-totp-db', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

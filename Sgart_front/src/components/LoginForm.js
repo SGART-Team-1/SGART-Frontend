@@ -70,7 +70,7 @@ const LoginForm = () => {
             password: contrasena,
         };
 
-        fetch('https://sgart-backend.onrender.com/users/login', {
+        fetch('/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

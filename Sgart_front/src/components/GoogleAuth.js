@@ -14,7 +14,7 @@ const GoogleAuth = () => {
     useEffect(() => {
         const fetchQRCode = async () => {
             try {
-                const response = await fetch(`https://sgart-backend.onrender.com/auth/generate-qr?email=${usuario.email}`);
+                const response = await fetch(`/auth/generate-qr?email=${usuario.email}`);
                 if (!response.ok) {
                     throw new Error('Error al generar el código QR');
                 }
@@ -38,7 +38,7 @@ const GoogleAuth = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch('https://sgart-backend.onrender.com/auth/validate-totp', {
+            const response = await fetch('/auth/validate-totp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ const GoogleAuth = () => {
             };
 
             console.log(usuarioActualizado);
-            const response = await fetch('https://sgart-backend.onrender.com/users/registro', {
+            const response = await fetch('/users/registro', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ const GoogleAuth = () => {
                 twoFactorAuthCode: secretKeySend // Actualiza el campo twoFactorAuthCode
             };
 
-            const response = await fetch('https://sgart-backend.onrender.com/admin/crearAdmin', {
+            const response = await fetch('/admin/crearAdmin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

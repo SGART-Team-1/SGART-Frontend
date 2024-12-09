@@ -1,8 +1,14 @@
-import React, { useState, useCallback } from 'react';
-import RegisterForm from './RegisterForm';
-import RecuperarPwdForm from './RecuperarPwdForm';
+import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import backgroundImage from '../media/1206.png';
+import logoSgart2 from '../media/logo_sgart-sinfondo-cortado.png';
+import logoSgart from '../media/logo_sgart-sinfondo.png';
+import '../styles/styles.css';
 import LoadingSpinner from './LoadingSpinner';
+import RecuperarPwdForm from './RecuperarPwdForm';
+import RegisterForm from './RegisterForm';
+
+
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -136,7 +142,18 @@ const LoginForm = () => {
                 <LoadingSpinner />
             ) : (
             <div className="login-container">
+                <div className="header-bar">
+                        <img src={logoSgart2} alt="Logo Sgart" className="header-logo" />
+                        <div className="header-links">
+                            <a href="/ayuda">Ayuda</a>
+                            <a href="/condiciones">Condiciones</a>
+                            <a href="/privacidad">Privacidad</a>
+                        </div>
+                    </div>
                 <div className="login-box">
+                    <img src={logoSgart} alt="Logo Sgart" className="login-logo" />
+
+                    
                     <h2 className="login-title">Iniciar Sesión</h2>
                     <div className={errorEmail === '' ? "input-group" : "input-group-error"}>
                         <input type="text" id="email" name="email" value={email} onChange={handleChange} required />
@@ -157,6 +174,8 @@ const LoginForm = () => {
                         <a href="#" onClick={handleToggleForm}>Regístrate</a>
                     </div>
                 </div>
+                <img src={backgroundImage} alt="Decorative Background" className="background-image" />
+
                 </div>
             )}
         </>

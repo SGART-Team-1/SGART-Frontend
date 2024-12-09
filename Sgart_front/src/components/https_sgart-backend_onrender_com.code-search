@@ -1,0 +1,231 @@
+# Query: https://sgart-backend.onrender.com
+# Flags: CaseSensitive
+# ContextLines: 1
+
+52 results - 18 files
+
+Sgart_front\package.json:
+  4    "private": true,
+  5:   "proxy": "https://sgart-backend.onrender.com/",
+  6    "dependencies": {
+
+Sgart_front\src\components\ActualizarPwdForm.js:
+  60          try {
+  61:             const response = await fetch('https://sgart-backend.onrender.com/auth/reset-password', {
+  62                  method: 'POST',
+
+Sgart_front\src\components\AdminAusenciasUI.js:
+   32                  setIsLoading(true);
+   33:                 const response = await axios.get('https://sgart-backend.onrender.com/users/cargarUsuarios');
+   34                  const empleadosData = response.data.map(user => ({
+
+  103  
+  104:             const response = await axios.post('https://sgart-backend.onrender.com/administrador/ausencias/newAbsence', nuevaAusencia);
+  105              console.log('Respuesta del servidor:', response.data);
+
+  185  
+  186:                 const response = await axios.get(`https://sgart-backend.onrender.com/administrador/ausencias/loadAbsences/${empleado.id}`);
+  187                  console.log('Ausencias cargadas:', response.data);
+
+Sgart_front\src\components\AdminEditForm.js:
+  65  
+  66:         fetch('https://sgart-backend.onrender.com/admin/modificarAdmin', {
+  67              method: 'POST',
+
+Sgart_front\src\components\AdminGestionarHorariosDeTrabajo.js:
+  25                  setIsLoading(true);
+  26:                 const response = await axios.get("https://sgart-backend.onrender.com/administrador/horarios");
+  27                  if (response.data.length > 0) {
+
+  73              setIsLoading(true);
+  74:             await axios.post("https://sgart-backend.onrender.com/administrador/horarios", workingHoursList);
+  75              alert("Horarios de trabajo guardados correctamente.");
+
+Sgart_front\src\components\AdminPanel.js:
+   18      const actualizarAdministradores = () =>{
+   19:         fetch('https://sgart-backend.onrender.com/admin/getAdmins')
+   20              .then(async response => {
+
+   37      const toggleUserStatus = (email) => {
+   38:         fetch('https://sgart-backend.onrender.com/admin/cambiarHabilitacion/' + email, {
+   39              method: 'PUT',
+
+   77      const handleConfirmSave = async () => {
+   78:         const response= await fetch('https://sgart-backend.onrender.com/admin/verificarEmail', {
+   79              method: 'POST',
+
+  165      const deleteAdmin = (email) =>{
+  166:         fetch('https://sgart-backend.onrender.com/admin/eliminar/email/'+email,{
+  167              method: 'DELETE',
+
+Sgart_front\src\components\AdminVisualizarCalendario.js:
+  22  
+  23:             const response = await fetch('https://sgart-backend.onrender.com/administrador/calendarios/loadMeetings');
+  24              if (!response.ok) {
+
+  57  
+  58:             const response = await fetch(`https://sgart-backend.onrender.com/administrador/calendarios/invitados`, {
+  59                  method: 'POST',
+
+Sgart_front\src\components\AdminWorkingHours.js:
+   55          try {
+   56:             const response = await fetch('https://sgart-backend.onrender.com/administrador/eventos/loadEvents');
+   57              if (!response.ok) throw new Error('Error al cargar los eventos');
+
+   75          try {
+   76:             const response = await fetch('https://sgart-backend.onrender.com/administrador/eventos/loadSchedules');
+   77              if (!response.ok) throw new Error('Error al cargar los horarios modificados');
+
+   94          try {
+   95:             const response = await fetch('https://sgart-backend.onrender.com/administrador/eventos/loadDefaultSchedule');
+   96              if (!response.ok) throw new Error('Error al cargar los horarios de trabajo por defecto');
+
+  226          try {
+  227:             const response = await fetch('https://sgart-backend.onrender.com/administrador/eventos/saveEvent', {
+  228                  method: 'POST',
+
+  263          try {
+  264:             const response = await fetch('https://sgart-backend.onrender.com/administrador/eventos/saveDay', {
+  265                  method: 'POST',
+
+Sgart_front\src\components\GoogleAuth.js:
+   16              try {
+   17:                 const response = await fetch(`https://sgart-backend.onrender.com/auth/generate-qr?email=${usuario.email}`);
+   18                  if (!response.ok) {
+
+   40          try {
+   41:             const response = await fetch('https://sgart-backend.onrender.com/auth/validate-totp', {
+   42                  method: 'POST',
+
+   83              console.log(usuarioActualizado);
+   84:             const response = await fetch('https://sgart-backend.onrender.com/users/registro', {
+   85                  method: 'POST',
+
+  112  
+  113:             const response = await fetch('https://sgart-backend.onrender.com/admin/crearAdmin', {
+  114                  method: 'POST',
+
+Sgart_front\src\components\GoogleAuthLogin.js:
+  25  
+  26:         fetch('https://sgart-backend.onrender.com/auth/validate-totp-db', {
+  27              method: 'POST',
+
+Sgart_front\src\components\LoginForm.js:
+  78  
+  79:         fetch('https://sgart-backend.onrender.com/users/login', {
+  80              method: 'POST',
+
+Sgart_front\src\components\RecuperarPwdForm.js:
+  27          try {
+  28:             const response = await fetch('https://sgart-backend.onrender.com/auth/forgot-password', {
+  29                  method: 'POST',
+
+Sgart_front\src\components\RegisterForm.js:
+  151          setIsLoading(true);
+  152:         fetch('https://sgart-backend.onrender.com/users/verificar-email', {
+  153              method: 'POST',
+
+Sgart_front\src\components\UserCalendarUI.js:
+   64              console.log(`Cargando invitados para la reunión ID: ${meetingId}`);
+   65:             const response = await fetch(`https://sgart-backend.onrender.com/administrador/calendarios/invitados`, {
+   66                  method: 'POST',
+
+   89          try {
+   90:             const response = await fetch('https://sgart-backend.onrender.com/users/current/userId', {
+   91                  credentials: 'include'
+
+  118  
+  119:             const response = await fetch('https://sgart-backend.onrender.com/administrador/calendarios/loadMeetings');
+  120              if (!response.ok) {
+
+  203              console.log("Iniciando carga de reuniones organizadas...");
+  204:             const response = await fetch('https://sgart-backend.onrender.com/usuarios/calendarios/organized-meetings', {
+  205                  credentials: 'include'
+
+  258          try {
+  259:             const response = await fetch(`https://sgart-backend.onrender.com/invitations/${meetingId}/attendance`, {
+  260                  credentials: 'include'
+
+  308  
+  309:             const url = `https://sgart-backend.onrender.com/invitations/${selectedEvent.id}/status`;
+  310              console.log('URL de la petición:', url);
+
+  409          try {
+  410:             const response = await fetch('https://sgart-backend.onrender.com/administrador/horarios');
+  411              if (!response.ok) {
+
+  535                  }
+  536:                 response = await fetch(`https://sgart-backend.onrender.com/api/meetings/${eventIdToEdit}/modify`, {
+  537                      method: 'POST',
+
+  550              } else {
+  551:                 response = await fetch('https://sgart-backend.onrender.com/api/meetings/create', {
+  552                      method: 'POST',
+
+  563                  const userIds = selectedUsers.map(user => user.id);
+  564:                 const inviteResponse = await fetch(`https://sgart-backend.onrender.com/invitations/${meetingId}/invite`, {
+  565                      method: 'POST',
+
+  625              
+  626:             const response = await fetch('https://sgart-backend.onrender.com/api/meetings/available-users');
+  627              if (!response.ok) {
+
+  658      const loadLocations = (async() => {
+  659:         const response = await fetch('https://sgart-backend.onrender.com/api/meetings/locations');
+  660          if (!response.ok) {
+
+  672      const loadAbsences = (async () => {
+  673:         const response = await fetch('https://sgart-backend.onrender.com/administrador/ausencias/loadAbsences');
+  674          if (!response.ok) {
+
+  773          try {
+  774:             const response = await fetch(`https://sgart-backend.onrender.com/invitations/${meetingId}/attendance`, {
+  775                  method: 'PUT',
+
+  842              // Hacer una petición DELETE al backend para eliminar la reunión
+  843:             const response = await fetch(`https://sgart-backend.onrender.com/api/meetings/${reunion.id}/cancel`, {
+  844                  method: 'DELETE',
+
+Sgart_front\src\components\UserEdit.js:
+  21          try {
+  22:             const response = await fetch('https://sgart-backend.onrender.com/users/current/user', {
+  23                  credentials: 'include'
+
+  58          // Realizar la solicitud al backend
+  59:         fetch('https://sgart-backend.onrender.com/users/modificar', {
+  60              method: 'POST',
+
+Sgart_front\src\components\UserEditForm.js:
+  22  
+  23:         fetch('https://sgart-backend.onrender.com/users/modificar', {
+  24              method: 'POST',
+
+Sgart_front\src\components\UserValidationUI.js:
+   17      const actualizarUsuarios = () => {
+   18:         fetch('https://sgart-backend.onrender.com/admin/getUsuariosSinValidar')
+   19              .then(async response => {
+
+   36              });
+   37:         fetch('https://sgart-backend.onrender.com/admin/getUsuariosValidados')
+   38              .then(async response => {
+
+   59          // Filtramos el array de datos para eliminar el elemento con el id correspondiente
+   60:         fetch('https://sgart-backend.onrender.com/admin/eliminar/email/' + email, {
+   61              method: 'DELETE',
+
+   75      const validarUsuario = (email) => {
+   76:         fetch('https://sgart-backend.onrender.com/admin/validar/' + email, {
+   77              method: 'PUT',
+
+   95      const toggleUserStatus = (email) => {
+   96:         fetch('https://sgart-backend.onrender.com/admin/cambiarHabilitacion/' + email, {
+   97              method: 'PUT',
+
+  163      const eliminarUsuario = (email) => {
+  164:         fetch('https://sgart-backend.onrender.com/admin/eliminar/email/' + email, {
+  165              method: 'DELETE',
+
+Sgart_mobile\components\LoginForm.js:
+  55        setIsLoading(true);
+  56:       const response = await fetch('https://sgart-backend.onrender.com/users/login', {
+  57          method: 'POST',

@@ -19,7 +19,7 @@ const UserEdit = () => {
 
     const loadUser = async () => {
         try {
-            const response = await fetch('https://sgart-backend.onrender.com/users/current/user', {
+            const response = await fetch('http://localhost:3000/users/current/user', {
                 credentials: 'include'
             });
             if (!response.ok) {
@@ -56,7 +56,7 @@ const UserEdit = () => {
         console.log(updatedUser);
 
         // Realizar la solicitud al backend
-        fetch('https://sgart-backend.onrender.com/users/modificar', {
+        fetch('http://localhost:3000/users/modificar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

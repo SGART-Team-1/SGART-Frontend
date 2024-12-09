@@ -16,7 +16,7 @@ const AdminPanel = () => {
         actualizarAdministradores();
     }, []);
     const actualizarAdministradores = () =>{
-        fetch('https://sgart-backend.onrender.com/admin/getAdmins')
+        fetch('http://localhost:3000/admin/getAdmins')
             .then(async response => {
                 const result = await response.json();
                 const adminsTable = result.map(admin => ({
@@ -35,7 +35,7 @@ const AdminPanel = () => {
     }
 
     const toggleUserStatus = (email) => {
-        fetch('https://sgart-backend.onrender.com/admin/cambiarHabilitacion/' + email, {
+        fetch('http://localhost:3000/admin/cambiarHabilitacion/' + email, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const AdminPanel = () => {
     };
 
     const handleConfirmSave = async () => {
-        const response= await fetch('https://sgart-backend.onrender.com/admin/verificarEmail', {
+        const response= await fetch('http://localhost:3000/admin/verificarEmail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ const AdminPanel = () => {
     }
 
     const deleteAdmin = (email) =>{
-        fetch('https://sgart-backend.onrender.com/admin/eliminar/email/'+email,{
+        fetch('http://localhost:3000/admin/eliminar/email/'+email,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

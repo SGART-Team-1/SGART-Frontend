@@ -20,7 +20,7 @@ const UserEditForm = ({ user, onSave, onCancel }) => {
             center: center
         };
 
-        fetch('https://sgart-backend.onrender.com/users/modificar', {
+        fetch('http://localhost:3000/users/modificar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

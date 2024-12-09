@@ -58,7 +58,7 @@ const ActualizarPwdForm = () => {
         });
 
         try {
-            const response = await fetch('https://sgart-backend.onrender.com/auth/reset-password', {
+            const response = await fetch('http://localhost:3000/auth/reset-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

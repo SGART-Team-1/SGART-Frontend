@@ -1,0 +1,185 @@
+.header-links {
+    display: flex;
+    gap: 20px; /* Espaciado entre los botones */
+    font-size: 1rem; /* Aumenta el tamaño de fuente */
+    align-items: center; /* Alinea verticalmente */
+}
+
+.header-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold; /* Hace el texto más visible */
+    padding: 5px 10px; /* Agrega padding para hacerlos más grandes */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+}
+
+.header-links a:hover {
+    background-color: #e0e0e0; /* Color de fondo al pasar el cursor */
+    color: #1435d6;
+
+    text-decoration: underline;
+}
+.header-logo {
+    width: 200px; /* Aumenta el ancho */
+    height: auto; /* Mantén la proporción */
+}
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px; /* Aumenta el padding para dar espacio */
+    background-color: rgba(255, 255, 255, 0);    border-bottom: 1px solid #ddd;
+    position: fixed; /* Fijar en la parte superior */
+    border-bottom: 1px solid rgba(221, 221, 221, 0.0);
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    z-index: 1000;
+    box-sizing: border-box; /* Incluye el padding en el ancho */
+}
+.background-image {
+    position: absolute; /* Posiciona la imagen en relación al contenedor */
+    top: 0; /* Asegura que comienza desde la parte superior */
+    left: 0; /* Asegura que comienza desde la izquierda */
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    height: 100%; /* Ocupa toda la altura de la ventana */
+    opacity: 1admins; /* Ajusta la transparencia */
+    z-index: 1; /* Colócala detrás de los demás elementos */
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
+    pointer-events: none; /* Evita que interfiera con la interacción del usuario */
+}
+
+.login-box {
+    position: relative; /* Permite que el z-index funcione */
+    z-index: 2; /* Asegura que esté por encima de la imagen de fondo */
+   
+}
+.popup-container {
+    width: 450px;
+    max-height: 90%;
+    overflow-y: auto;
+    background: linear-gradient(to bottom, #ffffff, #f7f7f7);
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.popup-container h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #007bff;
+    font-weight: bold;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.popup-container .AdminCalendar-input-group {
+    margin-bottom: 20px;
+}
+
+.popup-container .AdminCalendar-input-group label {
+    font-weight: bold;
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.popup-container .AdminCalendar-input-group p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+.popup-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+}
+
+.popup-container ul li {
+    font-size: 14px;
+    color: #444;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-container ul li:last-child {
+    border-bottom: none;
+}
+
+.popup-container ul li span {
+    font-weight: bold;
+    color: #007bff;
+}
+.popup-button-container {
+    display: flex;
+    justify-content: space-between; /* Asegura un buen espaciado entre los botones */
+    padding: 10px 15px; /* Añade un espacio interno adecuado */
+}
+
+.popup-button-container .close-button,
+.popup-button-container .attendance-button {
+    background-color: #007bff; /* Color azul para el botón de Asistencia */
+    color: white; /* Texto blanco */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno uniforme */
+    font-size: 16px; /* Tamaño de fuente consistente */
+    font-weight: bold; /* Resalta el texto */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.popup-button-container .close-button {
+    background-color: #6c757d; /* Color gris para el botón de cerrar */
+}
+
+.popup-button-container .close-button:hover {
+    background-color: #5a6268; /* Color gris más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Pequeño efecto de escala */
+}
+
+.popup-button-container .attendance-button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Pequeño efecto de escala */
+}
+
+/* Alineación vertical perfecta */
+.popup-button-container button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.popup-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.popup-container::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 5px;
+}
+
+.popup-container::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}

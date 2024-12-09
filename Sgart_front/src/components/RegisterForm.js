@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginForm from './LoginForm';
 import LoadingSpinner from './LoadingSpinner';
+import LoginForm from './LoginForm';
 
 const RegisterForm = () => {
     const navigate = useNavigate();
@@ -102,16 +102,8 @@ const RegisterForm = () => {
             setErrorEmail('Campo vacío');
             errorBool = true;
         }
-        if (departamento === '') {
-            setErrorDepartamento('Campo vacío');
-            errorBool = true;
-        }
         if (centro === '') {
             setErrorCentro('Campo vacío');
-            errorBool = true;
-        }
-        if (perfil_desplegable === '') {
-            setErrorPerfil('Campo vacío');
             errorBool = true;
         }
         if (fechaAlta === '') {
@@ -157,7 +149,7 @@ const RegisterForm = () => {
             twoFactorAuthCode: '',
         };
         setIsLoading(true);
-        fetch('https://sgart-backend.onrender.com/users/verificar-email', {
+        fetch('http://localhost:3000/users/verificar-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
